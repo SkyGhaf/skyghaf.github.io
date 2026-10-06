@@ -6,6 +6,7 @@
     <meta name="description" content="projecten - Sky Ghafoerkhan - HBO-ICT student"> 
     <title>Sky Ghafoerkhan - projecten</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/projecten.js" defer></script>
 </head>
 <body>
     <header>
@@ -21,27 +22,17 @@
 
     <main>
         <section>
-            <h2>Mijn projecten</h2>
 
-            <article>
-                <h3>FloraVeiling</h3>
-                <p>Bloemenveiling applicatie met Nederlands veilingklok systeem - de prijs begint hoog en daalt automatisch totdat iemand koopt.
-                    geschreven met Typescript en C#</p>
-                <a href="https://github.com/GRamdjiawan/Veiling-klok.git">FloraVeiling github</a>
-            </article>
+    <h2>Mijn projecten</h2>
 
-            <article>
-                <h3>LLM ai prototype</h3>
-                <p>Een AI-agent die hotelgasten via een gesprek helpt de perfecte kamer te vinden.</p>
-                <a href="https://github.com/SkyGhaf/LLM-ai-prototype.git">LLM ai prototype github</a>
-            </article>
+<div class="filters" role="group" aria-label="Filter projecten op categorie">
+    <button type="button" data-categorie="Alle" aria-pressed="true">Alle</button>
+    <button type="button" data-categorie="Web" aria-pressed="false">Web</button>
+    <button type="button" data-categorie="AI" aria-pressed="false">AI</button>
+    <button type="button" data-categorie="Spel" aria-pressed="false">Spel</button>
+</div>
 
-            <article>
-                <h3>Scrum Escape</h3>
-                <p>een speelse manier(escape room) om de principes, rollen en processen van het Scrum-framework te leren of te testen. Spelers moeten opdrachten en puzzels over Scrum oplossen om stapsgewijs te 'ontsnappen'.</p>
-                <img src="img/ScrumEscape.jpeg" alt="prijs gewonnen voor de scrum escape game" width="300" height="200">
-                <a href="https://github.com/soudshoorn/scrum-escape">Scrum escape github</a>
-            </article>
+    <div id="projecten-lijst"></div>
 
         </section>
     </main>

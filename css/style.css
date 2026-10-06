@@ -93,3 +93,36 @@ a:hover {
         margin: 0 auto;
     }
 }
+
+#projecten-lijst {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-basis: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.filters {
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filters button {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.filters button[aria-pressed="true"] {
+    background-color: #4da6ff;
+    color: #121212;
+}
