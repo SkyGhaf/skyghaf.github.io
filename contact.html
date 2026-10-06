@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="contact - Sky Ghafoerkhan - HBO-ICT student">
+    <title>Sky Ghafoerkhan - contact</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/contact.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Sky Ghafoerkhan</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Who Am I</a></li>
+                <li><a href="projecten.html">Projecten</a></li>
+                <li><a href="blog.html">blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    <section>
+        <h2>Contact</h2>
+
+        <form id="contact-form" novalidate>
+            <div class="veld">
+                <label for="naam">Naam</label>
+                <input type="text" id="naam" name="naam" required minlength="2" autocomplete="name" aria-describedby="naam-error" aria-invalid="false">
+                <span id="naam-error" class="foutmelding" role="alert"></span>
+            </div>
+
+            <div class="veld">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-error" aria-invalid="false">
+                <span id="email-error" class="foutmelding" role="alert"></span>
+            </div>
+
+            <div class="veld">
+                <label for="bericht">Bericht</label>
+                <textarea id="bericht" name="bericht" rows="5" required minlength="10" aria-describedby="bericht-error" aria-invalid="false"></textarea>
+                <span id="bericht-error" class="foutmelding" role="alert"></span>
+            </div>
+
+            <button type="submit">Versturen</button>
+            <div id="form-status" aria-live="polite"></div>
+        </form>
+    </section>
+</main>
