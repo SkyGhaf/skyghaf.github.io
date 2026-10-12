@@ -18,6 +18,9 @@ async function haalReposOp() {
     try {
         const response = await fetch(GITHUB_URL);
         const repos = await response.json();
+        console.log(repos);
+        console.log(repos[0]);
+        console.log(repos[0].name);
 
         repos.forEach((repo) => lijst.appendChild(maakRepoItem(repo)));
         status.textContent = "";
