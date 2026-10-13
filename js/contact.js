@@ -1,41 +1,37 @@
-const velden = [
-    { id: "naam", boodschap: "Vul je naam in (minimaal 2 tekens)." },
-    { id: "email", boodschap: "Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl." },
-    { id: "bericht", boodschap: "Schrijf een bericht van minimaal 10 tekens." },
-];
+const form = document.querySelector("#contact-form");
+const status = document.querySelector("#form-status");
 
-function valideerVeld(veld) {
-    const input = document.querySelector(`#${veld.id}`);
-    const foutmelding = document.querySelector(`#${veld.id}-error`);
-    const geldig = input.checkValidity() && input.value.trim() !== "";
+const naam = document.querySelector("#naam");
+const email = document.querySelector("#email");
+const bericht = document.querySelector("#bericht");
 
-    input.setAttribute("aria-invalid", String(!geldig));
-    foutmelding.textContent = geldig ? "" : veld.boodschap;
-    return geldig;
+const naamFout = document.querySelector("#naam-error");
+const emailFout = document.querySelector("#email-error");
+const berichtFout = document.querySelector("#bericht-error");
+
+function valideerVeld(veld, foutElement, foutTekst) {
+    if (veld.checkValidity()) {
+        foutElement.textContent = "";
+        veld.setAttribute("aria-invalid", "false");
+        return true;
+    } else {
+        foutElement.textContent = foutTekst;
+        veld.setAttribute("aria-invalid", "true");
+        return false;
+    }
 }
 
-function valideerFormulier() {
-    return velden.map(valideerVeld).every(Boolean);
-}
-
-function toonStatus(tekst) {
-    document.querySelector("#form-status").textContent = tekst;
-}
-
-function verwerkVerzending(event) {
+form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    if (!valideerFormulier()) {
-        toonStatus("Er zijn nog fouten in het formulier.");
-        return;
+    const naamGoed = valideerVeld(naam, naamFout, "Vul je naam in (minimaal 2 tekens).");
+    const emailGoed = valideerVeld(email, emailFout, "Vul een geldig e-mailadres in.");
+    const berichtGoed = valideerVeld(bericht, berichtFout, "Schrijf een bericht van minimaal 10 tekens.");
+
+    if (naamGoed && emailGoed && berichtGoed) {
+        status.textContent = "Bedankt! Je bericht is verzonden.";
+        form.reset();
+    } else {
+        status.textContent = "Er zijn nog fouten in het formulier.";
     }
-
-    toonStatus("Bedankt! Je bericht is verzonden.");
-    event.target.reset();
-}
-
-document.querySelector("#contact-form").addEventListener("submit", verwerkVerzending);
-
-velden.forEach((veld) => {
-    document.querySelector(`#${veld.id}`).addEventListener("blur", () => valideerVeld(veld));
 });
