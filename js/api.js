@@ -4,7 +4,7 @@ function maakRepoItem(repo) {
     const item = document.createElement("li");
     const link = document.createElement("a");
     link.href = repo.html_url;
-    link.textContent = repo.name;
+    link.textContent = repo.name + " (" + repo.language + ")";
     item.appendChild(link);
     return item;
 }

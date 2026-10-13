@@ -25,6 +25,7 @@ const projecten = [
 ];
 
 function maakProjectKaart(project) {
+    console.log("maakProjectKaart met:", project.titel);
     const kaart = document.createElement("article");
 
     const titel = document.createElement("h3");
@@ -64,6 +65,7 @@ function renderProjecten(lijst) {
 renderProjecten(projecten);
 
 function filterProjecten(categorie) {
+    console.log("filterProjecten met:", categorie);
     if (categorie === "Alle") {
         return projecten;
     }
@@ -76,9 +78,21 @@ function zetActieveKnop(actieveKnop) {
     });
 }
 
-document.querySelectorAll(".filters button").forEach((knop) => {
-    knop.addEventListener("click", () => {
-        renderProjecten(filterProjecten(knop.dataset.categorie));
-        zetActieveKnop(knop);
+function zetActieveKnop(actieveKnop) {
+    const knoppen = document.querySelectorAll(".filters button");
+
+    knoppen.forEach((knop) => {
+        if (knop === actieveKnop) {
+            knop.setAttribute("aria-pressed", "true");
+        } else {
+            knop.setAttribute("aria-pressed", "false");
+        }
     });
+}
+
 });
+console.log(projecten);
+console.log(projecten.length);
+console.log(projecten[2].titel);
+console.log(projecten[0].afbeelding);
+console.log(projecten[2].afbeelding);
