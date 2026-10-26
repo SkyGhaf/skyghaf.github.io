@@ -1,10 +1,8 @@
 const form = document.querySelector("#contact-form");
 const status = document.querySelector("#form-status");
-
 const naam = document.querySelector("#naam");
 const email = document.querySelector("#email");
 const bericht = document.querySelector("#bericht");
-
 const naamFout = document.querySelector("#naam-error");
 const emailFout = document.querySelector("#email-error");
 const berichtFout = document.querySelector("#bericht-error");

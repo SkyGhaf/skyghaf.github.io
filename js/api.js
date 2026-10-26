@@ -25,7 +25,7 @@ async function haalReposOp() {
         repos.forEach((repo) => lijst.appendChild(maakRepoItem(repo)));
         status.textContent = "";
     } catch (error) {
-        status.textContent = "Kon de repositories niet ophalen. Probeer het later opnieuw.";
+        status.textContent = "Kon de repositories niet ophalen.";
     }
 }
 
